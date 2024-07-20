@@ -6,7 +6,7 @@ const yourCourses = [
     duration: '17 Hours +',
     modules: '15 Modules',
     language: 'English',
-    link: '/speak-english.html'
+    link: 'speak-english.html'
   },
   {
     title: 'Speak English Fluently',
@@ -14,7 +14,7 @@ const yourCourses = [
     duration: '18 Hours +',
     modules: '15 Modules',
     language: 'English',
-    link: '/speak-english-2.html'
+    link: 'speak-english-2.html'
   }
   // Add more courses as needed
 ];
