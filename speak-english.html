@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AR LMS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&amp;display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="figtree-400 bg-[#ede9e6]">
+  <header class="figtree-400 text-gray-400 bg-[#13181d] body-font">
+    <div class="container mx-auto flex flex-wrap p-5 py-0 flex-col md:flex-row items-center">
+      <nav class="flex text-center flex-wrap items-center justify-center w-full pt-3 text-base gap-3">
+        <a
+          class="flex items-center justify-center flex-col gap-1 border-b-4 border-transparent hover:border-white w-[160px] p-4 hover:text-white figtree-400 transition-colors duration-300">
+          <i class="fa-solid fa-house text-2xl"></i>
+          <span class="my-1">Home</span>
+        </a>
+        <a
+          class="flex items-center justify-center flex-col gap-1 border-b-4 border-transparent hover:border-white w-[160px] p-4 hover:text-white figtree-400 transition-colors duration-300">
+          <i class="fa-solid fa-briefcase text-2xl"></i>
+          <span class="my-1">Purchases</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+  <main id="content" class="min-h-screen">
+    <!-- back button -->
+     <div class="container p-5">
+       <div id="back-button" class="w-[50px] h-[50px] relative bg-[#13181d] rounded-full">
+         <i class="fa-solid text-white fa-arrow-left text-xl absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]"></i>
+       </div>
+     </div>
+  </main>
+  <footer class="text-white body-font">
+    <div class="bg-[#2b303d]">
+      <div class="container mx-auto py-4 px-5 flex items-center justify-center flex-wrap flex-col sm:flex-row">
+        <p class="text-lg text-center sm:text-left">© 2024 Aleena Rais</p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
