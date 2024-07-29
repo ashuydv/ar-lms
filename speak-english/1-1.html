@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AR LMS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="figtree-400 bg-[#ede9e6]">
+    <main id="content" class="min-h-screen">
+        <!-- back button -->
+        <div class="container-fluid mx-auto sm:py-36 sm:px-16 px-0 pb-20">
+            <a href="/speak-english.html" id="back-button"
+                class="sm:w-[50px] sm:h-[50px] w-[100%] block top-[0px] left-[0px] w-[100%] relative bg-[#13181d] sm:rounded-full px-5 py-6">
+                <i
+                    class="fa-solid text-white fa-arrow-left text-[12px] absolute sm:top-[50%] sm:left-[50%] sm:-translate-x-[50%] sm:-translate-y-[50%] top-[50%] left-[6%] -translate-y-[50%]"></i>
+                <div id="moduleName" class="text-white text-center">
+                    Module 01
+                </div>
+            </a>
+            <div
+                class="flex sm:items-start items-center sm:flex-row flex-col-reverse gap-[28px] justify-center sm:mt-10 mt-6 px-4 mx-auto sm:min-h-screen ">
+                <div class="sm:min-w-[60%] w-full mx-auto" id="mobile-c">
+                    <div id="video-container" class="mb-8 w-full">
+                        <h2 class="sm:text-3xl text-2xl title-font w-full font-semibold text-gray-900 mt-2 mb-4">
+                            Lesson 1</h2>
+                        <video id="video-player" class="w-full h-full border-2 border-black rounded-lg" autoplay loop controls
+                            muted>
+                            <source src="../assets/video.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div id="info-container" class="mb-4 w-full">
+                        <!-- Info tabs and content will be dynamically inserted here -->
+                        <div class="flex border-b">
+                            <button
+                                class="py-2 px-4 sm:text-xl text-xl font-medium text-center text-black border-b-2 border-black rounded-t-lg active"
+                                id="lesson-tab" data-tabs-target="#lesson" type="button" role="tab"
+                                aria-controls="lesson" aria-selected="true">
+                                Lesson Info
+                            </button>
+                            <button
+                                class="py-2 px-4 sm:text-x  l text-xl font-medium text-center text-gray-500 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300"
+                                id="resources-tab" data-tabs-target="#resources" type="button" role="tab"
+                                aria-controls="resources" aria-selected="false">
+                                Resources
+                            </button>
+                        </div>
+                        <div id="tab-content" class="w-full">
+                            <div class="rounded-lg py-8" id="lesson" role="tabpanel" aria-labelledby="lesson-tab">
+                                <p class="sm:text-xl text-md text-black w-full">
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et quis explicabo enim
+                                    odit quo possimus, eum tempore eaque? Porro, assumenda?
+                                </p>
+                            </div>
+                            <div class="hidden rounded-lg py-8" id="resources" role="tabpanel"
+                                aria-labelledby="resources-tab">
+                                <p class="sm:text-xl text-md text-black w-full">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe explicabo porro
+                                    dignissimos iusto? Ab doloremque architecto tenetur ullam minima sed!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="text-white body-font">
+        <div class="bg-[#13181d]">
+            <div class="container px-5 py-4 flex items-center justify-between">
+                <a href="#">
+                    previous
+                </a>
+                <a href="1-2.html">next</a>
+            </div>
+        </div>
+        <!-- <div class="container mx-auto py-4 px-5 flex items-center justify-center flex-wrap flex-col sm:flex-row">
+                <p class="text-lg text-center sm:text-left">© 2024 Aleena Rais</p>
+            </div> -->
+        </div>
+    </footer>
+
+    <script>
+        // Add click event listeners to tabs
+        document.querySelectorAll('[data-tabs-target]').forEach(tab => {
+            tab.addEventListener('click', () => switchTab(tab));
+        });
+
+        function switchTab(selectedTab) {
+            const tabs = document.querySelectorAll('[data-tabs-target]');
+            const tabContents = document.querySelectorAll('[role="tabpanel"]');
+
+            tabs.forEach(tab => {
+                tab.classList.remove('active', 'border-black', 'text-black');
+                tab.classList.add('text-gray-500', 'border-transparent');
+            });
+
+            tabContents.forEach(content => content.classList.add('hidden'));
+
+            selectedTab.classList.add('active', 'border-black', 'text-black');
+            selectedTab.classList.remove('text-gray-500', 'border-transparent');
+
+            const target = document.querySelector(selectedTab.dataset.tabsTarget);
+            target.classList.remove('hidden');
+        }
+
+    </script>
+</body>
+
+</html>

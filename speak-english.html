@@ -13,7 +13,8 @@
 </head>
 
 <body class="figtree-400 bg-[#ede9e6]">
-  <header class="figtree-400 text-gray-400 bg-[#13181d] body-font">
+  <header
+    class="figtree-400 text-gray-400 bg-[#13181d] sm:fixed fixed sm:top-0 sm:w-full sm:h-28 z-2092823 bottom-0 body-font">
     <div class="container mx-auto flex flex-wrap p-5 py-0 flex-col md:flex-row items-center">
       <nav class="flex text-center flex-wrap items-center justify-center w-full pt-3 text-base gap-3">
         <a
@@ -31,11 +32,28 @@
   </header>
   <main id="content" class="min-h-screen">
     <!-- back button -->
-     <div class="container p-5">
-       <div id="back-button" class="w-[50px] h-[50px] relative bg-[#13181d] rounded-full">
-         <i class="fa-solid text-white fa-arrow-left text-xl absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]"></i>
-       </div>
-     </div>
+    <div class="container-fluid mx-auto sm:py-36 sm:px-16 px-0 pb-20">
+      <a href="/" id="back-button"
+        class="sm:w-[50px] sm:h-[50px] w-[100%] min-h-[72px] block top-[0px] left-[0px] relative bg-[#13181d] sm:rounded-full px-5 py-6">
+        <i
+          class="fa-solid text-white fa-arrow-left text-[12px] absolute sm:top-[50%] sm:left-[50%] sm:-translate-x-[50%] sm:-translate-y-[50%] top-[50%] left-[6%] -translate-y-[50%]"></i>
+        <div id="moduleName" class="text-white text-center"></div>
+      </a>
+      <div
+        class="flex sm:items-start items-center sm:flex-row flex-col-reverse gap-[28px] justify-center sm:mt-10 mt-6 px-4 mx-auto sm:min-h-screen ">
+        <div class="sm:min-w-[60%] w-full mx-auto" id="mobile-c">
+          <div id="video-container" class="mb-8 w-full">
+            <!-- Video content will be dynamically inserted here -->
+          </div>
+          <div id="info-container" class="mb-4 w-full">
+            <!-- Info tabs and content will be dynamically inserted here -->
+          </div>
+        </div>
+        <div id="modules-container" class="sm:min-w-[40%] w-full mx-auto gap-[20px] flex flex-col">
+          <!-- Module accordions will be dynamically inserted here -->
+        </div>
+      </div>
+    </div>
   </main>
   <footer class="text-white body-font">
     <div class="bg-[#2b303d]">
@@ -44,6 +62,8 @@
       </div>
     </div>
   </footer>
+
+  <script src="main.js"></script>
 </body>
 
 </html>

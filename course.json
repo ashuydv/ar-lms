@@ -1,0 +1,142 @@
+{
+  "modules": [
+    {
+      "title": "Module 01",
+      "description": "Introduction to English",
+      "lessonCount": 15,
+      "lessons": [
+        {
+          "title": "1. Wh-questions",
+          "type": "Video",
+          "data": "2 MB",
+          "videoUrl": "path/to/wh-questions-video.mp4",
+          "lessonInfo": "Wh-questions are questions that typically start with 'what', 'where', 'when', 'why', or 'how'. They are used to gather specific information.",
+          "resources": "Additional resources for Wh-questions..."
+        },
+        {
+          "title": "2. Yes/No questions",
+          "type": "Video",
+          "data": "1.5 MB",
+          "videoUrl": "path/to/yes-no-questions-video.mp4",
+          "lessonInfo": "Yes/No questions are questions that can be answered with a simple 'yes' or 'no'.",
+          "resources": "Additional resources for Yes/No questions..."
+        }
+      ]
+    },
+    {
+      "title": "Module 02",
+      "description": "Introduction to English",
+      "lessonCount": 15,
+      "lessons": [
+        {
+          "title": "1. Wh-questions",
+          "type": "Video",
+          "data": "2 MB",
+          "videoUrl": "path/to/wh-questions-video.mp4",
+          "lessonInfo": "Wh-questions are questions that typically start with 'what', 'where', 'when', 'why', or 'how'. They are used to gather specific information.",
+          "resources": "Additional resources for Wh-questions..."
+        },
+        {
+          "title": "2. Yes/No questions",
+          "type": "Video",
+          "data": "1.5 MB",
+          "videoUrl": "path/to/yes-no-questions-video.mp4",
+          "lessonInfo": "Yes/No questions are questions that can be answered with a simple 'yes' or 'no'.",
+          "resources": "Additional resources for Yes/No questions..."
+        }
+      ]
+    },
+    {
+      "title": "Module 03",
+      "description": "Introduction to English",
+      "lessonCount": 15,
+      "lessons": [
+        {
+          "title": "1. Wh-questions",
+          "type": "Video",
+          "data": "2 MB",
+          "videoUrl": "path/to/wh-questions-video.mp4",
+          "lessonInfo": "Wh-questions are questions that typically start with 'what', 'where', 'when', 'why', or 'how'. They are used to gather specific information.",
+          "resources": "Additional resources for Wh-questions..."
+        },
+        {
+          "title": "2. Yes/No questions",
+          "type": "Video",
+          "data": "1.5 MB",
+          "videoUrl": "path/to/yes-no-questions-video.mp4",
+          "lessonInfo": "Yes/No questions are questions that can be answered with a simple 'yes' or 'no'.",
+          "resources": "Additional resources for Yes/No questions..."
+        }
+      ]
+    },
+    {
+      "title": "Module 04",
+      "description": "Introduction to English",
+      "lessonCount": 15,
+      "lessons": [
+        {
+          "title": "1. Wh-questions",
+          "type": "Video",
+          "data": "2 MB",
+          "videoUrl": "path/to/wh-questions-video.mp4",
+          "lessonInfo": "Wh-questions are questions that typically start with 'what', 'where', 'when', 'why', or 'how'. They are used to gather specific information.",
+          "resources": "Additional resources for Wh-questions..."
+        },
+        {
+          "title": "2. Yes/No questions",
+          "type": "Video",
+          "data": "1.5 MB",
+          "videoUrl": "path/to/yes-no-questions-video.mp4",
+          "lessonInfo": "Yes/No questions are questions that can be answered with a simple 'yes' or 'no'.",
+          "resources": "Additional resources for Yes/No questions..."
+        }
+      ]
+    },
+    {
+      "title": "Module 05",
+      "description": "Introduction to English",
+      "lessonCount": 15,
+      "lessons": [
+        {
+          "title": "1. Wh-questions",
+          "type": "Video",
+          "data": "2 MB",
+          "videoUrl": "path/to/wh-questions-video.mp4",
+          "lessonInfo": "Wh-questions are questions that typically start with 'what', 'where', 'when', 'why', or 'how'. They are used to gather specific information.",
+          "resources": "Additional resources for Wh-questions..."
+        },
+        {
+          "title": "2. Yes/No questions",
+          "type": "Video",
+          "data": "1.5 MB",
+          "videoUrl": "path/to/yes-no-questions-video.mp4",
+          "lessonInfo": "Yes/No questions are questions that can be answered with a simple 'yes' or 'no'.",
+          "resources": "Additional resources for Yes/No questions..."
+        }
+      ]
+    },
+    {
+      "title": "Module 06",
+      "description": "Introduction to English",
+      "lessonCount": 15,
+      "lessons": [
+        {
+          "title": "1. Wh-questions",
+          "type": "Video",
+          "data": "2 MB",
+          "videoUrl": "path/to/wh-questions-video.mp4",
+          "lessonInfo": "Wh-questions are questions that typically start with 'what', 'where', 'when', 'why', or 'how'. They are used to gather specific information.",
+          "resources": "Additional resources for Wh-questions..."
+        },
+        {
+          "title": "2. Yes/No questions",
+          "type": "Video",
+          "data": "1.5 MB",
+          "videoUrl": "path/to/yes-no-questions-video.mp4",
+          "lessonInfo": "Yes/No questions are questions that can be answered with a simple 'yes' or 'no'.",
+          "resources": "Additional resources for Yes/No questions..."
+        }
+      ]
+    }
+  ]
+}
