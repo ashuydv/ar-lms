@@ -14,7 +14,7 @@
 
 <body class="figtree-400 bg-[#ede9e6]">
   <header
-    class="figtree-400 text-gray-400 bg-[#13181d] sm:fixed fixed sm:top-0 sm:w-full sm:h-28 z-2092823 bottom-0 body-font">
+    class="figtree-400 text-gray-400 bg-[#13181d] sm:fixed fixed sm:top-0 sm:w-full sm:h-28 z-20 bottom-0 body-font">
     <div class="container mx-auto flex flex-wrap p-5 py-0 flex-col md:flex-row items-center">
       <nav class="flex text-center flex-wrap items-center justify-center w-full pt-3 text-base gap-3">
         <a
@@ -34,13 +34,13 @@
     <!-- back button -->
     <div class="container-fluid mx-auto sm:py-36 sm:px-16 px-0 pb-20">
       <a href="/" id="back-button"
-        class="sm:w-[50px] sm:h-[50px] w-[100%] min-h-[72px] block top-[0px] left-[0px] relative bg-[#13181d] sm:rounded-full px-5 py-6">
+        class="w-[100%] min-h-[72px] sm:w-[60px] sm:min-h-[60px] block top-[0px] left-[0px] relative bg-[#13181d] sm:rounded-full px-5 py-6 sm:p-0">
         <i
           class="fa-solid text-white fa-arrow-left text-[12px] absolute sm:top-[50%] sm:left-[50%] sm:-translate-x-[50%] sm:-translate-y-[50%] top-[50%] left-[6%] -translate-y-[50%]"></i>
         <div id="moduleName" class="text-white text-center"></div>
       </a>
       <div
-        class="flex sm:items-start items-center sm:flex-row flex-col-reverse gap-[28px] justify-center sm:mt-10 mt-6 px-4 mx-auto sm:min-h-screen ">
+        class="flex sm:items-start items-center sm:flex-row flex-col-reverse gap-[28px] justify-center sm:mt-10 mt-6 px-4 mx-auto sm:min-h-screen pt-2 pb-16">
         <div class="sm:min-w-[60%] w-full mx-auto" id="mobile-c">
           <div id="video-container" class="mb-8 w-full">
             <!-- Video content will be dynamically inserted here -->
@@ -55,7 +55,21 @@
       </div>
     </div>
   </main>
-  <footer class="text-white body-font">
+  <div id="header">
+    <nav class="flex text-center flex-wrap items-center justify-center w-full pt-3 text-base gap-3">
+      <a
+        class="flex items-center justify-center flex-col gap-1 border-b-4 border-transparent hover:border-white w-[160px] p-4 hover:text-white figtree-400 transition-colors duration-300">
+        <i class="fa-solid fa-house text-2xl"></i>
+        <span class="my-1">Home</span>
+      </a>
+      <a
+        class="flex items-center justify-center flex-col gap-1 border-b-4 border-transparent hover:border-white w-[160px] p-4 hover:text-white figtree-400 transition-colors duration-300">
+        <i class="fa-solid fa-briefcase text-2xl"></i>
+        <span class="my-1">Purchases</span>
+      </a>
+    </nav>
+  </div>
+  <footer class="text-white body-font fixed bottom-0">
     <div class="bg-[#2b303d]">
       <div class="container mx-auto py-4 px-5 flex items-center justify-center flex-wrap flex-col sm:flex-row">
         <p class="text-lg text-center sm:text-left">© 2024 Aleena Rais</p>

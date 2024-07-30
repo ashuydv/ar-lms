@@ -151,8 +151,43 @@
   cursor: not-allowed;
 }
 
+.accordion-content {
+  overflow: hidden;
+  transition: 0.3s ease-out;
+}
+
+.accordion-content.active {
+  transition: 0.5s ease-in;
+}
+
+.accordion-header svg {
+  transition: transform 0.3s ease;
+}
+
+.accordion-header.active svg {
+  transform: rotate(180deg);
+}
+
+#header {
+  display: none;
+}
+
 @media (max-width: 768px) {
   /* Add mobile-specific styles here */
+
+  header, footer {
+    display: none;
+  }
+
+  #header {
+    display: block;
+    position: fixed;
+    background: #111;
+    color: white;
+    bottom: 0%;
+    width: 100%;
+  }
+
   #modules-container {
     margin-bottom: 20px;
   }

@@ -25,11 +25,11 @@ const yourCourses = [
 ];
 
 const features = [
-  { title: 'English Speaking Partners' },
-  { title: 'Talk with AI' },
-  { title: '300+ Practice Questions' },
-  { title: 'Complete Lesson Notes' },
-  { title: 'Generate Certificate' }
+  { title: 'English Speaking Partners', link: 'speaking-partners.html' },
+  { title: 'Talk with AI', link: 'talk-with-ai.html' },
+  { title: '300+ Practice Questions', link: '' },
+  { title: 'Complete Lesson Notes', link: '' },
+  { title: 'Generate Certificate', link: 'generate-certifcate.html' }
 ];
 
 const upcomingCourses = [
@@ -213,7 +213,7 @@ function createHeader() {
 
   const navHTML = navItems.map(item => `
       <a class="flex items-center justify-center flex-col gap-1 border-b-4 border-transparent hover:border-white w-[120px] p-2 hover:text-white figtree-400 transition-colors duration-300">
-        <i class="fa-solid ${item.icon} sm:text-2xl text-xs"></i>
+        <i class="fa-solid ${item.icon} sm:text-2xl text-base"></i>
         <span class="my-1">${item.name}</span>
       </a>
     `).join('');
@@ -267,8 +267,8 @@ function createYourCoursesSection() {
     `).join('');
 
   section.innerHTML = `
-      <div class="container px-5 sm:py-24 py-12 mx-auto">
-        <div class="flex flex-wrap w-full mb-10">
+      <div class="container px-5 sm:py-24 py-12 pt-24 mx-auto">
+        <div class="flex flex-wrap w-full sm:mb-10 mb-6">
           <div class="lg:w-1/2 w-full sm:mb-6 mb-2 lg:mb-0">
             <h1 class="sm:text-5xl text-4xl font-bold title-font mb-2 text-gray-900">Your Courses</h1>
             <div class="h-1 w-20 bg-indigo-500 rounded"></div>
@@ -291,11 +291,11 @@ function createFeaturesSection() {
   const featuresHTML = features.map(feature => `
       <div class="p-4 sm:w-1/5 md:w-1/5 w-full">
         <div class="flex sm:items-start items-center justify-between rounded-lg h-full bg-[#13181d] p-5 sm:flex-col">
-          <h2 class="text-white sm:text-2xl sm:w-full w-full max-w-[150px] text-base title-font font-medium mb-auto">
+          <h2 class="text-white sm:text-2xl sm:w-full w-full max-w-[150px] text-base title-font font-medium mb-0">
             ${feature.title}
           </h2>
           <div class="sm:mt-6 mt-0">
-            <a class="text-[#13181d] sm:px-5 px-3 sm:py-2 py-2 sm:text-lg text-sm font-medium rounded-lg inline-flex bg-[#f4f5ed] items-center">
+            <a href="${feature.link}" class="text-[#13181d] sm:px-5 px-3 sm:py-2 py-2 sm:text-lg text-sm font-medium rounded-lg inline-flex bg-[#f4f5ed] items-center">
               Get Access
               <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                 <path d="M5 12h14M12 5l7 7-7 7"></path>
@@ -307,7 +307,7 @@ function createFeaturesSection() {
     `).join('');
 
   section.innerHTML = `
-      <div class="container px-5 sm:py-24 py-12 pb-0 mx-auto">
+      <div class="container px-5 sm:py-24 py-8 pb-0 mx-auto">
         <div class="flex flex-wrap w-full mb-10">
           <div class="lg:w-1/2 w-full sm:mb-6 mb-2 lg:mb-0">
             <h1 class="sm:text-4xl text-3xl font-bold title-font mb-2 text-gray-900">Additional Features</h1>
@@ -325,7 +325,7 @@ function createFeaturesSection() {
 
 function createUpcomingCoursesSection() {
   const section = document.createElement('section');
-  section.className = 'text-gray-600 body-font';
+  section.className = 'text-gray-600 body-font ';
   section.id = 'courses';
 
   const coursesHTML = upcomingCourses.map(course => `
@@ -345,7 +345,7 @@ function createUpcomingCoursesSection() {
     `).join('');
 
   section.innerHTML = `
-      <div class="container px-5 py-24 mx-auto">
+      <div class="container px-5 sm:py-24 py-14 pb-36 mx-auto">
         <div class="flex flex-wrap w-full mb-10">
           <div class="lg:w-1/2 w-full sm:mb-6 mb-2 lg:mb-0">
             <h1 class="sm:text-4xl text-3xl font-bold title-font mb-2 text-gray-900">Upcoming Courses</h1>
@@ -395,10 +395,10 @@ tabs.forEach(tab => {
     tabs.forEach(t => {
       t.setAttribute('aria-selected', 'false');
       t.classList.remove('text-blue-600', 'border-blue-600');
-      t.classList.add('text-gray-500', 'border-transparent', 'hover:text-gray-600', 'hover:border-gray-300');
+      t.classList.add('text-gray-500', 'border-transparent', 'hover:text-gray-600', 'hover:border-black');
     });
     tab.setAttribute('aria-selected', 'true');
-    tab.classList.remove('text-gray-500', 'border-transparent', 'hover:text-gray-600', 'hover:border-gray-300');
+    tab.classList.remove('text-gray-500', 'border-transparent', 'hover:text-gray-600', 'hover:border-black');
     tab.classList.add('text-black', 'border-black');
 
     // Hide all tab contents
@@ -454,18 +454,102 @@ document.querySelectorAll('.accordion-header').forEach(button => {
   });
 });
 
+// function renderModules() {
+
+//   // Highlight the first video item
+//   const firstVideoItem = document.querySelector('.video-item');
+//   if (firstVideoItem) {
+//     firstVideoItem.classList.add('bg-gray-200');
+//   }
+
+//   if (courseData && modulesContainer && window.innerWidth > 1000) {
+//     modulesContainer.innerHTML = courseData.modules.map((module, moduleIndex) => `
+//       <div class="accordion-item bg-white border-2 border-black rounded-lg shadow w-full transition">
+//         <button class="accordion-header w-full text-left px-4 py-3 flex justify-between items-start">
+//           <div>
+//             <h3 class="font-medium">${module.title}</h3>
+//             <p class="text-xl text-gray-900 font-medium">${module.description}</p>
+//             <span class="text-xs text-gray-900">${module.lessonCount} Lessons</span>
+//           </div>
+//           <svg class="w-5 h-5 transition-transform transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+//             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+//           </svg>
+//         </button>
+//         <div class="accordion-content hidden transition px-4 pb-3">
+//           <ul class="space-y-2">
+//             ${module.lessons.map((lesson, lessonIndex) => `
+//               <li class="video-item" data-module="${moduleIndex}" data-lesson="${lessonIndex}">
+//                 <div class="flex-shrink-0 mr-3">
+//                   <svg class="w-10 h-10 text-gray-900" fill="currentColor" viewBox="0 0 20 20">
+//                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path>
+//                   </svg>
+//                 </div>
+//                 <div class="flex-grow">
+//                   <p class="font-medium w-full">${lesson.title}</p>
+//                   <p class="text-xs text-gray-500">${lesson.type} • Data: ${lesson.data}</p>
+//                 </div>
+//               </li>
+//             `).join('')}
+//           </ul>
+//         </div>
+//       </div>
+//     `).join('');
+//   }
+
+//   if (window.innerWidth <= 1000) {
+//     modulesContainer.innerHTML = courseData.modules.map((module, moduleIndex) => `
+//     <div class="accordion-item bg-white border-2 border-black rounded-lg shadow w-full">
+//       <button class="accordion-header w-full text-left px-4 py-3 flex justify-between items-start transition">
+//         <div>
+//           <h3 class="font-medium">${module.title}</h3>
+//           <p class="text-xl text-gray-900 font-medium">${module.description}</p>
+//           <span class="text-xs text-gray-900">${module.lessonCount} Lessons</span>
+//         </div>
+//         <svg class="w-5 h-5 transition-transform transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+//           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+//         </svg>
+//       </button>
+//       <div class="accordion-content hidden px-4 pb-3 transition">
+//         <ul class="space-y-2">
+//           ${module.lessons.map((lesson, lessonIndex) => `
+//             <a href="speak-english/${lesson.href}" class="video-item" data-module="${moduleIndex}" data-lesson="${lessonIndex}">
+//               <div class="flex-shrink-0 mr-3">
+//                 <svg class="w-10 h-10 text-gray-900" fill="currentColor" viewBox="0 0 20 20">
+//                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path>
+//                 </svg>
+//               </div>
+//               <div class="flex-grow">
+//                 <p class="font-medium w-full">${lesson.title}</p>
+//                 <p class="text-xs text-gray-500">${lesson.type} • Data: ${lesson.data}</p>
+//               </div>
+//             </a>
+//           `).join('')}
+//         </ul>
+//       </div>
+//     </div>
+//   `).join('');
+//   }
+
+//   // Add click event listeners to video items
+//   document.querySelectorAll('.video-item').forEach(item => {
+//     item.addEventListener('click', handleVideoClick);
+//   });
+
+//   // Add click event listeners to accordion headers
+//   document.querySelectorAll('.accordion-header').forEach(header => {
+//     header.addEventListener('click', toggleAccordion);
+//   });
+// }
+
 function renderModules() {
+  if (!courseData || !modulesContainer) return;
 
-  // Highlight the first video item
-  const firstVideoItem = document.querySelector('.video-item');
-  if (firstVideoItem) {
-    firstVideoItem.classList.add('bg-gray-200');
-  }
+  function render() {
+    const isMobile = window.innerWidth <= 1000;
 
-  if (courseData && modulesContainer && window.innerWidth > 1000) {
     modulesContainer.innerHTML = courseData.modules.map((module, moduleIndex) => `
       <div class="accordion-item bg-white border-2 border-black rounded-lg shadow w-full">
-        <button class="accordion-header w-full text-left px-4 py-3 flex justify-between items-start">
+        <button class="accordion-header w-full text-left px-4 py-3 flex justify-between items-start transition">
           <div>
             <h3 class="font-medium">${module.title}</h3>
             <p class="text-xl text-gray-900 font-medium">${module.description}</p>
@@ -475,10 +559,10 @@ function renderModules() {
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
           </svg>
         </button>
-        <div class="accordion-content hidden px-4 pb-3">
+        <div class="accordion-content hidden px-4 pb-3 transition">
           <ul class="space-y-2">
             ${module.lessons.map((lesson, lessonIndex) => `
-              <li class="video-item" data-module="${moduleIndex}" data-lesson="${lessonIndex}">
+              <${isMobile ? 'a href="speak-english/' + lesson.href + '"' : 'li'} class="video-item" data-module="${moduleIndex}" data-lesson="${lessonIndex}">
                 <div class="flex-shrink-0 mr-3">
                   <svg class="w-10 h-10 text-gray-900" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path>
@@ -488,56 +572,40 @@ function renderModules() {
                   <p class="font-medium w-full">${lesson.title}</p>
                   <p class="text-xs text-gray-500">${lesson.type} • Data: ${lesson.data}</p>
                 </div>
-              </li>
+              </${isMobile ? 'a' : 'li'}>
             `).join('')}
           </ul>
         </div>
       </div>
     `).join('');
+
+    // Highlight the first video item
+    const firstVideoItem = document.querySelector('.video-item');
+    if (firstVideoItem) {
+      firstVideoItem.classList.add('bg-gray-200');
+    }
+
+    // Add click event listeners to video items
+    document.querySelectorAll('.video-item').forEach(item => {
+      item.addEventListener('click', handleVideoClick);
+    });
+
+    // Add click event listeners to accordion headers
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', toggleAccordion);
+    });
   }
 
-  if(window.innerWidth <= 1000) {
-    modulesContainer.innerHTML = courseData.modules.map((module, moduleIndex) => `
-    <div class="accordion-item bg-white border-2 border-black rounded-lg shadow w-full">
-      <button class="accordion-header w-full text-left px-4 py-3 flex justify-between items-start">
-        <div>
-          <h3 class="font-medium">${module.title}</h3>
-          <p class="text-xl text-gray-900 font-medium">${module.description}</p>
-          <span class="text-xs text-gray-900">${module.lessonCount} Lessons</span>
-        </div>
-        <svg class="w-5 h-5 transition-transform transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-        </svg>
-      </button>
-      <div class="accordion-content hidden px-4 pb-3">
-        <ul class="space-y-2">
-          ${module.lessons.map((lesson, lessonIndex) => `
-            <a href="speak-english/${lesson.href}" class="video-item" data-module="${moduleIndex}" data-lesson="${lessonIndex}">
-              <div class="flex-shrink-0 mr-3">
-                <svg class="w-10 h-10 text-gray-900" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path>
-                </svg>
-              </div>
-              <div class="flex-grow">
-                <p class="font-medium w-full">${lesson.title}</p>
-                <p class="text-xs text-gray-500">${lesson.type} • Data: ${lesson.data}</p>
-              </div>
-            </a>
-          `).join('')}
-        </ul>
-      </div>
-    </div>
-  `).join('');
-  }
+  // Initial render
+  render();
 
-  // Add click event listeners to video items
-  document.querySelectorAll('.video-item').forEach(item => {
-    item.addEventListener('click', handleVideoClick);
-  });
-
-  // Add click event listeners to accordion headers
-  document.querySelectorAll('.accordion-header').forEach(header => {
-    header.addEventListener('click', toggleAccordion);
+  // Re-render on window resize
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      render();
+    }, 250); // Debounce the resize event
   });
 }
 
@@ -589,7 +657,7 @@ function updateInfoContent(lesson) {
         <button class="py-2 px-4 sm:text-xl text-xl font-medium text-center text-black border-b-2 border-black rounded-t-lg active" id="lesson-tab" data-tabs-target="#lesson" type="button" role="tab" aria-controls="lesson" aria-selected="true">
           Lesson Info
         </button>
-        <button class="py-2 px-4 sm:text-x  l text-xl font-medium text-center text-gray-500 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300" id="resources-tab" data-tabs-target="#resources" type="button" role="tab" aria-controls="resources" aria-selected="false">
+        <button class="py-2 px-4 sm:text-x  l text-xl font-medium text-center text-gray-500 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-black" id="resources-tab" data-tabs-target="#resources" type="button" role="tab" aria-controls="resources" aria-selected="false">
           Resources
         </button>
       </div>
