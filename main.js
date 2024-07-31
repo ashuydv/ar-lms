@@ -323,14 +323,52 @@ function createFeaturesSection() {
   return section;
 }
 
+// function createUpcomingCoursesSection() {
+//   const section = document.createElement('section');
+//   section.className = 'text-gray-600 body-font ';
+//   section.id = 'courses';
+
+//   const coursesHTML = upcomingCourses.map(course => `
+//       <div class="p-4 md:w-1/5">
+//         <div class="flex items-start justify-between rounded-lg h-full bg-[#13181d] p-5 flex-col min-h-[240px]">
+//           <div class="mb-4">
+//             <a class="text-[#13181d] px-3 p-1 text-sm font-medium rounded-lg inline-flex bg-[#f4f5ed] items-center">
+//               Coming Soon
+//             </a>
+//           </div>
+//           <h2 class="text-white text-3xl title-font font-semibold mb-auto">
+//             ${course.title} <br class="mb-0" />
+//             ${course.subtitle ? `<span class="text-white text-sm font-normal">${course.subtitle}</span>` : ''}
+//           </h2>
+//         </div>
+//       </div>
+//     `).join('');
+
+//   section.innerHTML = `
+//       <div class="container px-5 sm:py-24 py-14 pb-36 mx-auto">
+//         <div class="flex flex-wrap w-full mb-10">
+//           <div class="lg:w-1/2 w-full sm:mb-6 mb-2 lg:mb-0">
+//             <h1 class="sm:text-4xl text-3xl font-bold title-font mb-2 text-gray-900">Upcoming Courses</h1>
+//             <div class="h-1 w-20 bg-indigo-500 rounded"></div>
+//           </div>
+//         </div>
+//         <div class="flex flex-wrap -m-4">
+//           ${coursesHTML}
+//         </div>
+//       </div>
+//     `;
+
+//   return section;
+// }
+
 function createUpcomingCoursesSection() {
   const section = document.createElement('section');
-  section.className = 'text-gray-600 body-font ';
+  section.className = 'text-gray-600 body-font';
   section.id = 'courses';
 
-  const coursesHTML = upcomingCourses.map(course => `
+  const coursesHTML = upcomingCourses.map((course, index) => `
       <div class="p-4 md:w-1/5">
-        <div class="flex items-start justify-between rounded-lg h-full bg-[#13181d] p-5 flex-col min-h-[240px]">
+        <div class="flex items-start justify-between rounded-lg h-full bg-[#13181d] p-5 flex-col min-h-[240px] cursor-pointer course-card" data-course-index="${index}">
           <div class="mb-4">
             <a class="text-[#13181d] px-3 p-1 text-sm font-medium rounded-lg inline-flex bg-[#f4f5ed] items-center">
               Coming Soon
@@ -359,6 +397,47 @@ function createUpcomingCoursesSection() {
     `;
 
   return section;
+}
+
+function openDrawerWithCourseDetails(course) {
+  const drawerContent = document.querySelector('.drawer-content');
+
+  if (!drawerContent) {
+    console.error('Drawer content element not found');
+    return;
+  }
+
+  drawerContent.innerHTML = `
+    <div class="p-5">
+      <div class="flex justify-between items-center mb-6">
+        <h3 class="text-2xl font-bold text-gray-900">${course.title}</h3>
+        <button id="closeDrawer"
+          class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 inline-flex items-center">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="mb-4">
+        <img src="${course.image || 'https://dummyimage.com/600x300'}" alt="Course Image" class="w-full rounded-lg">
+      </div>
+      <div class="flex justify-between items-center mb-4">
+        <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">${course.category || 'COURSE'}</span>
+        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">${course.duration || 'N/A'}</span>
+      </div>
+      <p class="text-sm text-gray-500 mb-4">${course.subtitle || ''}</p>
+      <!-- Add more course details here -->
+    </div>
+  `;
+
+  const closeDrawerBtn = document.getElementById('closeDrawer');
+  if (closeDrawerBtn) {
+    closeDrawerBtn.addEventListener('click', closeDrawer);
+  }
+
+  openDrawer();
 }
 
 function createMainContent() {
@@ -702,8 +781,56 @@ function switchTab(selectedTab) {
   target.classList.remove('hidden');
 }
 
+function openDrawer() {
+  const drawer = document.getElementById('drawer');
+  if (!drawer) {
+    console.error('Drawer element not found');
+    return;
+  }
+
+  const drawerContent = drawer.querySelector('.drawer-content');
+  if (!drawerContent) {
+    console.error('Drawer content element not found');
+    return;
+  }
+
+  drawer.classList.remove('hidden');
+  setTimeout(() => {
+    drawer.classList.add('show');
+    drawerContent.classList.add('show');
+  }, 10);
+}
+
+function closeDrawer() {
+  const drawer = document.getElementById('drawer');
+  const drawerContent = drawer.querySelector('.drawer-content');
+  drawer.classList.remove('show');
+  drawerContent.classList.remove('show');
+  setTimeout(() => {
+    drawer.classList.add('hidden');
+  }, 300);
+}
+
 // Initialize the page
 document.addEventListener('DOMContentLoaded', () => {
   renderModules();
   loadFirstVideo();
+
+  // Add event listeners for course cards
+  const coursesSection = document.getElementById('courses');
+  if (coursesSection) {
+    coursesSection.addEventListener('click', (event) => {
+      const courseCard = event.target.closest('.course-card');
+      if (courseCard) {
+        const courseIndex = parseInt(courseCard.dataset.courseIndex);
+        if (!isNaN(courseIndex) && upcomingCourses[courseIndex]) {
+          openDrawerWithCourseDetails(upcomingCourses[courseIndex]);
+        } else {
+          console.error('Invalid course index or course not found');
+        }
+      }
+    });
+  } else {
+    console.error('Courses section not found');
+  }
 });
