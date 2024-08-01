@@ -3,22 +3,22 @@ import { handleVideoClick } from './main.js';
 import { closeDrawer, openDrawer, switchTab, toggleAccordion } from './utils.js';
 
 export function createHeader() {
-    const header = document.createElement('header');
-    header.className = 'figtree-400 text-gray-400 bg-[#13181d] body-font';
+  const header = document.createElement('header');
+  header.className = 'figtree-400 text-gray-400 bg-[#13181d] body-font';
 
-    const navItems = [
-        { name: 'Home', icon: 'fa-house' },
-        { name: 'Purchases', icon: 'fa-briefcase' },
-    ];
+  const navItems = [
+    { name: 'Home', icon: 'fa-house', href: 'index.html' },
+    { name: 'Purchases', icon: 'fa-briefcase', href: 'purchases.html' },
+  ];
 
-    const navHTML = navItems.map(item => `
-    <a class="flex items-center justify-center flex-col gap-1 border-b-4 border-transparent hover:border-white w-[120px] p-2 hover:text-white figtree-400 transition-colors duration-300">
+  const navHTML = navItems.map(item => `
+    <a href=${item.href} class="flex items-center justify-center flex-col gap-1 border-b-4 border-transparent hover:border-white w-[120px] p-2 hover:text-white figtree-400 transition-colors duration-300">
       <i class="fa-solid ${item.icon} sm:text-2xl text-base"></i>
       <span class="my-1">${item.name}</span>
     </a>
   `).join('');
 
-    header.innerHTML = `
+  header.innerHTML = `
     <div class="container mx-auto flex flex-wrap p-5 py-0 flex-col md:flex-row items-center">
       <nav id="main-nav" class="flex text-center flex-wrap items-center justify-center w-full pt-3 text-base gap-3">
         ${navHTML}
@@ -26,39 +26,39 @@ export function createHeader() {
     </div>
   `;
 
-    return header;
+  return header;
 }
 
 export function createFooter() {
-    const footer = document.createElement('footer');
-    footer.className = 'text-white body-font';
-    footer.innerHTML = `
+  const footer = document.createElement('footer');
+  footer.className = 'text-white body-font';
+  footer.innerHTML = `
     <div class="bg-[#2b303d]">
       <div class="container mx-auto py-4 px-5 flex items-center justify-center flex-wrap flex-col sm:flex-row">
         <p class="text-lg text-center sm:text-left">© 2024 Aleena Rais</p>
       </div>
     </div>
   `;
-    return footer;
+  return footer;
 }
 
 export function createMainContent() {
-    const main = document.createElement('main');
-    main.id = 'content';
+  const main = document.createElement('main');
+  main.id = 'content';
 
-    main.appendChild(createYourCoursesSection());
-    main.appendChild(createFeaturesSection());
-    main.appendChild(createUpcomingCoursesSection());
+  main.appendChild(createYourCoursesSection());
+  main.appendChild(createFeaturesSection());
+  main.appendChild(createUpcomingCoursesSection());
 
-    return main;
+  return main;
 }
 
 function createYourCoursesSection() {
-    const section = document.createElement('section');
-    section.className = 'text-gray-600 body-font';
-    section.id = 'your_course';
+  const section = document.createElement('section');
+  section.className = 'text-gray-600 body-font';
+  section.id = 'your_course';
 
-    const coursesHTML = yourCourses.map(course => `
+  const coursesHTML = yourCourses.map(course => `
     <div class="xl:w-1/3 md:w-1/2 p-4">
       <a href="${course.link}">
         <div class="bg-[#d9b25d] rounded-[20px] overflow-hidden">
@@ -77,7 +77,7 @@ function createYourCoursesSection() {
     </div>
   `).join('');
 
-    section.innerHTML = `
+  section.innerHTML = `
     <div class="container px-5 sm:py-24 py-12 pt-24 mx-auto">
       <div class="flex flex-wrap w-full sm:mb-10 mb-6">
         <div class="lg:w-1/2 w-full sm:mb-6 mb-2 lg:mb-0">
@@ -91,15 +91,15 @@ function createYourCoursesSection() {
     </div>
   `;
 
-    return section;
+  return section;
 }
 
 function createFeaturesSection() {
-    const section = document.createElement('section');
-    section.className = 'text-gray-600 body-font';
-    section.id = 'features';
+  const section = document.createElement('section');
+  section.className = 'text-gray-600 body-font';
+  section.id = 'features';
 
-    const featuresHTML = features.map(feature => `
+  const featuresHTML = features.map(feature => `
     <div class="p-4 sm:w-1/5 md:w-1/5 w-full">
       <div class="flex sm:items-start items-center justify-between rounded-lg h-full bg-[#13181d] p-5 sm:flex-col">
         <h2 class="text-white sm:text-2xl sm:w-full w-full max-w-[150px] text-base title-font font-medium mb-0">
@@ -117,7 +117,7 @@ function createFeaturesSection() {
     </div>
   `).join('');
 
-    section.innerHTML = `
+  section.innerHTML = `
     <div class="container px-5 sm:py-4 py-8 pb-0 mx-auto">
       <div class="flex flex-wrap w-full mb-10">
         <div class="lg:w-1/2 w-full sm:mb-6 mb-2 lg:mb-0">
@@ -131,7 +131,7 @@ function createFeaturesSection() {
     </div>
   `;
 
-    return section;
+  return section;
 }
 
 // function createUpcomingCoursesSection() {
@@ -173,11 +173,11 @@ function createFeaturesSection() {
 // }
 
 function createUpcomingCoursesSection() {
-    const section = document.createElement('section');
-    section.className = 'text-gray-600 body-font';
-    section.id = 'courses';
+  const section = document.createElement('section');
+  section.className = 'text-gray-600 body-font';
+  section.id = 'courses';
 
-    const coursesHTML = upcomingCourses.map((course, index) => `
+  const coursesHTML = upcomingCourses.map((course, index) => `
     <div class="p-4 md:w-1/5">
       <div class="flex items-start justify-between rounded-lg h-full bg-[#13181d] p-5 flex-col min-h-[240px] cursor-pointer course-card" data-course-index="${index}">
         <div class="mb-4">
@@ -193,7 +193,7 @@ function createUpcomingCoursesSection() {
     </div>
   `).join('');
 
-    section.innerHTML = `
+  section.innerHTML = `
     <div class="container px-5 sm:py-20 py-14 pb-36 mx-auto">
       <div class="flex flex-wrap w-full mb-10">
         <div class="lg:w-1/2 w-full sm:mb-6 mb-2 lg:mb-0">
@@ -207,51 +207,51 @@ function createUpcomingCoursesSection() {
     </div>
   `;
 
-    // Add click event listeners to course cards
-    section.querySelectorAll('.course-card').forEach(card => {
-        card.addEventListener('click', () => {
-            console.log('Card clicked'); // Debug log
-            const courseIndex = parseInt(card.dataset.courseIndex);
-            if (!isNaN(courseIndex) && upcomingCourses[courseIndex]) {
-                console.log('Opening drawer for course:', upcomingCourses[courseIndex]); // Debug log
-                openDrawerWithCourseDetails(upcomingCourses[courseIndex]);
-            } else {
-                console.error('Invalid course index or course not found');
-            }
-        });
+  // Add click event listeners to course cards
+  section.querySelectorAll('.course-card').forEach(card => {
+    card.addEventListener('click', () => {
+      console.log('Card clicked'); // Debug log
+      const courseIndex = parseInt(card.dataset.courseIndex);
+      if (!isNaN(courseIndex) && upcomingCourses[courseIndex]) {
+        console.log('Opening drawer for course:', upcomingCourses[courseIndex]); // Debug log
+        openDrawerWithCourseDetails(upcomingCourses[courseIndex]);
+      } else {
+        console.error('Invalid course index or course not found');
+      }
     });
+  });
 
-    return section;
+  return section;
 }
 
 function openDrawerWithCourseDetails(course) {
-    console.log('openDrawerWithCourseDetails called with course:', course); // Debug log
-    const drawerContent = document.querySelector('.drawer-content');
+  console.log('openDrawerWithCourseDetails called with course:', course); // Debug log
+  const drawerContent = document.querySelector('.drawer-content');
 
-    if (!drawerContent) {
-        console.error('Drawer content element not found');
-        return;
-    }
+  if (!drawerContent) {
+    console.error('Drawer content element not found');
+    return;
+  }
 
-    drawerContent.innerHTML = createDrawerContent(course);
+  drawerContent.innerHTML = createDrawerContent(course);
 
-    const closeDrawerBtn = document.getElementById('closeDrawer');
-    if (closeDrawerBtn) {
-        closeDrawerBtn.addEventListener('click', closeDrawer);
-    }
+  const closeDrawerBtn = document.getElementById('closeDrawer');
+  if (closeDrawerBtn) {
+    closeDrawerBtn.addEventListener('click', closeDrawer);
+  }
 
-    openDrawer();
-    console.log('Drawer should be open now'); // Debug log
+  openDrawer();
+  console.log('Drawer should be open now'); // Debug log
 }
 
 export function renderModules() {
-    const modulesContainer = document.getElementById('modules-container');
-    if (!courseData || !modulesContainer) return;
+  const modulesContainer = document.getElementById('modules-container');
+  if (!courseData || !modulesContainer) return;
 
-    function render() {
-        const isMobile = window.innerWidth <= 1000;
+  function render() {
+    const isMobile = window.innerWidth <= 1000;
 
-        modulesContainer.innerHTML = courseData.modules.map((module, moduleIndex) => `
+    modulesContainer.innerHTML = courseData.modules.map((module, moduleIndex) => `
       <div class="accordion-item bg-white border-2 border-black rounded-lg shadow w-full">
         <button class="accordion-header w-full text-left px-4 py-3 flex justify-between items-start transition">
           <div>
@@ -283,52 +283,52 @@ export function renderModules() {
       </div>
     `).join('');
 
-        // Highlight the first video item
-        const firstVideoItem = document.querySelector('.video-item');
-        if (firstVideoItem) {
-            firstVideoItem.classList.add('bg-gray-200');
-        }
-
-        // Add click event listeners to video items
-        document.querySelectorAll('.video-item').forEach(item => {
-            item.addEventListener('click', handleVideoClick);
-        });
-
-        // Add click event listeners to accordion headers
-        document.querySelectorAll('.accordion-header').forEach(header => {
-            header.addEventListener('click', toggleAccordion);
-        });
+    // Highlight the first video item
+    const firstVideoItem = document.querySelector('.video-item');
+    if (firstVideoItem) {
+      firstVideoItem.classList.add('bg-gray-200');
     }
 
-    // Initial render
-    render();
-
-    // Re-render on window resize
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-            render();
-        }, 250); // Debounce the resize event
+    // Add click event listeners to video items
+    document.querySelectorAll('.video-item').forEach(item => {
+      item.addEventListener('click', handleVideoClick);
     });
+
+    // Add click event listeners to accordion headers
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', toggleAccordion);
+    });
+  }
+
+  // Initial render
+  render();
+
+  // Re-render on window resize
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      render();
+    }, 250); // Debounce the resize event
+  });
 }
 
 export function updateVideoContent(lesson) {
-    const videoContainer = document.getElementById('video-container');
-    if (videoContainer) {
-        videoContainer.innerHTML = `
+  const videoContainer = document.getElementById('video-container');
+  if (videoContainer) {
+    videoContainer.innerHTML = `
       <h2 class="sm:text-3xl text-2xl title-font w-full font-semibold text-gray-900 mt-2 mb-4">${lesson.title}</h2>
       <video id="video-player" class="w-full h-full border-2 border-black rounded-2xl" autoplay loop muted>
         <source src="${lesson.videoUrl}" type="video/mp4">
       </video>
     `;
-    }
+  }
 }
 
 export function updateInfoContent(lesson) {
-    const infoContainer = document.getElementById('info-container');
-    if (infoContainer) {
-        infoContainer.innerHTML = `
+  const infoContainer = document.getElementById('info-container');
+  if (infoContainer) {
+    infoContainer.innerHTML = `
       <div class="flex border-b">
         <button class="py-2 px-4 sm:text-xl text-xl font-medium text-center text-black border-b-2 border-black rounded-t-lg active" id="lesson-tab" data-tabs-target="#lesson" type="button" role="tab" aria-controls="lesson" aria-selected="true">
           Lesson Info
@@ -347,11 +347,11 @@ export function updateInfoContent(lesson) {
       </div>
     `;
 
-        // Add click event listeners to tabs
-        document.querySelectorAll('[data-tabs-target]').forEach(tab => {
-            tab.addEventListener('click', () => switchTab(tab));
-        });
-    }
+    // Add click event listeners to tabs
+    document.querySelectorAll('[data-tabs-target]').forEach(tab => {
+      tab.addEventListener('click', () => switchTab(tab));
+    });
+  }
 }
 
 // export function createDrawerContent(course) {
@@ -385,19 +385,19 @@ export function updateInfoContent(lesson) {
 // }
 
 export function createDrawer() {
-    const drawer = document.createElement('div');
-    drawer.id = 'drawer';
-    drawer.className = 'fixed inset-0 bg-gray-600 bg-opacity-50 overflow-hidden h-full w-full hidden drawer-backdrop';
-    drawer.innerHTML = `
+  const drawer = document.createElement('div');
+  drawer.id = 'drawer';
+  drawer.className = 'fixed inset-0 bg-gray-600 bg-opacity-50 overflow-hidden h-full w-full hidden drawer-backdrop';
+  drawer.innerHTML = `
       <div class="absolute right-0 top-0 h-full w-full sm:w-2/3 md:w-1/2 lg:w-1/3 bg-white shadow-xl drawer-content overflow-y-auto">
         <!-- Drawer content will be inserted here -->
       </div>
     `;
-    return drawer;
+  return drawer;
 }
 
 export function createDrawerContent(course) {
-    return `
+  return `
       <div class="p-5">
         <div class="flex justify-between items-center mb-6">
           <h3 class="text-2xl font-bold text-gray-900">${course.title}</h3>
