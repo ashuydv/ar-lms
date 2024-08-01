@@ -32,7 +32,7 @@
     </header>
     <div id="header">
         <nav class="flex text-center flex-wrap items-center justify-center w-full pt-3 text-base gap-3">
-            <a
+            <a href="index.html"
                 class="flex items-center justify-center flex-col gap-1 border-b-4 border-transparent hover:border-white w-[160px] p-4 hover:text-white figtree-400 transition-colors duration-300">
                 <i class="fa-solid fa-house text-2xl"></i>
                 <span class="my-1">Home</span>
@@ -45,21 +45,19 @@
         </nav>
     </div>
     <main id="content" class="min-h-screen flex flex-col justify-center items-center pb-24">
-        <div id="back-button"
-            class="w-[100%] min-h-[72px] m-0 sm:w-[60px] sm:min-h-[60px] sm:block fixed w-full top-[-5px] left-[0px] bg-[#13181d] sm:rounded-full px-5 py-6 sm:p-0">
-            <a href="/">
+        <div>
+            <a href="./index.html" id="back-button"
+                class="w-[100%] min-h-[72px] m-0 sm:w-[60px] sm:min-h-[60px] sm:block fixed w-full top-[-5px] left-[0px] bg-[#13181d] sm:rounded-full px-5 py-6 sm:p-0">
                 <i
                     class="fa-solid text-white fa-arrow-left text-[12px] absolute sm:top-[50%] sm:left-[50%] sm:-translate-x-[50%] sm:-translate-y-[50%] top-[50%] left-[6%] -translate-y-[50%]"></i>
             </a>
             <div id="moduleName" class="text-white text-center">English Speaking Partners</div>
         </div>
 
-        <div class="rounded-lg p-6 pt-32 pb-12 max-w-md w-full">
-
-            <h1 class="text-center mb-8 text-xl font-semibold text-gray-800">
+        <div class="rounded-lg p-6 pt-44 pb-12 max-w-md w-full">
+            <h1 class="text-center mb-4 text-2xl font-semibold text-gray-800">
                 Send a message to your Speaking Partner
             </h1>
-
             <button
                 class="w-full bg-green-500 text-white py-3 rounded-lg mb-4 font-medium hover:bg-green-600 transition-colors duration-300 flex items-center justify-center">
                 <i class="fab fa-whatsapp mr-2"></i>
@@ -93,14 +91,30 @@
     </main>
 
     <footer class="text-white body-font">
-        <div class="bg-[#2b303d]">
+        <div class="bg-[#13181d]">
             <div class="container mx-auto py-4 px-5 flex items-center justify-center flex-wrap flex-col sm:flex-row">
                 <p class="text-lg text-center sm:text-left">© 2024 Aleena Rais</p>
             </div>
         </div>
     </footer>
 
-    <script src="main.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        const whatsappButton = document.getElementById('whatsappButton');
+
+        if (whatsappButton) {
+            whatsappButton.addEventListener('click', function () {
+                const phoneNumber = '9136345128';
+                const message = 'Hi!';
+
+                const encodedMessage = encodeURIComponent(message);
+
+                const whatsappUrl = `https://api.whatsapp.com/send/?phone=${phone}&text=${message}`;
+                window.open(whatsappUrl, '_blank');
+            });
+        }
+    </script>
 </body>
 
 </html>

@@ -188,6 +188,10 @@
   transform: translateX(0);
 }
 
+#moduleName {
+  display: none;
+}
+
 @media (max-width: 768px) {
   /* Add mobile-specific styles here */
 
